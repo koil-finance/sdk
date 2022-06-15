@@ -34,7 +34,7 @@ const sdkConfig: BalancerSdkConfig = {
 };
 
 const forkedSdkConfig: BalancerSdkConfig = {
-  network: Network.MAINNET,
+  network: Network.FUSE,
   rpcUrl: `localhost:8545`,
   sor: sorConfig,
 };

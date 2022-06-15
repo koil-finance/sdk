@@ -37,7 +37,7 @@ describe('pricing module', () => {
     };
 
     sdkConfig = {
-      network: Network.MAINNET,
+      network: Network.FUSE,
       rpcUrl: ``,
       sor: sorConfig,
     };
@@ -64,8 +64,8 @@ describe('pricing module', () => {
       it('should fetch pools from poolDataService if no pools passed as param', async () => {
         const pricing = new Pricing(sdkConfig);
         const sp = await pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].WETH.address,
-          ADDRESSES[Network.MAINNET].USDC.address,
+          ADDRESSES[Network.FUSE].WETH.address,
+          ADDRESSES[Network.FUSE].USDC.address,
           weth_usdc_pool_id
         );
         expect(sp).to.deep.eq('0.0003423365526722167');
@@ -74,8 +74,8 @@ describe('pricing module', () => {
       it('should fetch pools from poolDataService if empty pools passed as param', async () => {
         const pricing = new Pricing(sdkConfig);
         const sp = await pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].USDC.address,
-          ADDRESSES[Network.MAINNET].WETH.address,
+          ADDRESSES[Network.FUSE].USDC.address,
+          ADDRESSES[Network.FUSE].WETH.address,
           weth_usdc_pool_id,
           []
         );
@@ -90,7 +90,7 @@ describe('pricing module', () => {
           fetchOnChainBalances: false,
         };
         const sdkConfig: BalancerSdkConfig = {
-          network: Network.MAINNET,
+          network: Network.FUSE,
           rpcUrl: ``,
           sor: sorConfig,
         };
@@ -98,8 +98,8 @@ describe('pricing module', () => {
         let error = null;
         try {
           await balancer.pricing.getSpotPrice(
-            ADDRESSES[Network.MAINNET].WETH.address,
-            ADDRESSES[Network.MAINNET].USDC.address,
+            ADDRESSES[Network.FUSE].WETH.address,
+            ADDRESSES[Network.FUSE].USDC.address,
             weth_usdc_pool_id
           );
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -120,8 +120,8 @@ describe('pricing module', () => {
         let error = null;
         try {
           await balancer.pricing.getSpotPrice(
-            ADDRESSES[Network.MAINNET].WETH.address,
-            ADDRESSES[Network.MAINNET].BAL.address,
+            ADDRESSES[Network.FUSE].WETH.address,
+            ADDRESSES[Network.FUSE].BAL.address,
             pools_14717479[0].id,
             [nonValidPool]
           );
@@ -138,8 +138,8 @@ describe('pricing module', () => {
       it('should fetch pools with no pools data param', async () => {
         const balancer = new BalancerSDK(sdkConfig);
         const sp = await balancer.pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].WETH.address,
-          ADDRESSES[Network.MAINNET].BAL.address,
+          ADDRESSES[Network.FUSE].WETH.address,
+          ADDRESSES[Network.FUSE].BAL.address,
           weth_bal_pool_id
         );
         expect(sp).to.deep.eq('0.004981212133448337');
@@ -166,8 +166,8 @@ describe('pricing module', () => {
       it('should fetch pools with no pools data param', async () => {
         const pricing = new Pricing(sdkConfig);
         const sp = await pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].WETH.address,
-          ADDRESSES[Network.MAINNET].USDC.address
+          ADDRESSES[Network.FUSE].WETH.address,
+          ADDRESSES[Network.FUSE].USDC.address
         );
         expect(sp).to.deep.eq('0.0003423365526722167');
       });
@@ -175,8 +175,8 @@ describe('pricing module', () => {
       it('should fetch pools with no pools data param', async () => {
         const pricing = new Pricing(sdkConfig);
         const sp = await pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].USDC.address,
-          ADDRESSES[Network.MAINNET].WETH.address
+          ADDRESSES[Network.FUSE].USDC.address,
+          ADDRESSES[Network.FUSE].WETH.address
         );
         expect(sp).to.deep.eq('2925.488620398681');
       });
@@ -186,8 +186,8 @@ describe('pricing module', () => {
       it('should fetch pools with no pools data param', async () => {
         const balancer = new BalancerSDK(sdkConfig);
         const sp = await balancer.pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].WETH.address,
-          ADDRESSES[Network.MAINNET].USDC.address
+          ADDRESSES[Network.FUSE].WETH.address,
+          ADDRESSES[Network.FUSE].USDC.address
         );
         expect(sp).to.deep.eq('0.0003423365526722167');
       });
@@ -197,8 +197,8 @@ describe('pricing module', () => {
       it('should fetch correct sp', async () => {
         const balancer = new BalancerSDK(sdkConfig);
         const sp = await balancer.pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].DAI.address,
-          ADDRESSES[Network.MAINNET].USDC.address,
+          ADDRESSES[Network.FUSE].DAI.address,
+          ADDRESSES[Network.FUSE].USDC.address,
           '0x06df3b2bbb68adc8b0e302443692037ed9f91b42000000000000000000000063'
         );
         expect(sp).to.deep.eq('1.000051911328148725');
@@ -209,8 +209,8 @@ describe('pricing module', () => {
       it('should fetch correct sp', async () => {
         const balancer = new BalancerSDK(sdkConfig);
         const sp = await balancer.pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].WETH.address,
-          ADDRESSES[Network.MAINNET].wSTETH.address,
+          ADDRESSES[Network.FUSE].WETH.address,
+          ADDRESSES[Network.FUSE].wSTETH.address,
           '0x32296969ef14eb0c6d29669c550d4a0449130230000200000000000000000080'
         );
         expect(sp).to.deep.eq('1.070497605163895290828158545877174735');
@@ -221,8 +221,8 @@ describe('pricing module', () => {
       it('should fetch correct sp', async () => {
         const balancer = new BalancerSDK(sdkConfig);
         const sp = await balancer.pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].bbausd.address,
-          ADDRESSES[Network.MAINNET].bbausdc.address,
+          ADDRESSES[Network.FUSE].bbausd.address,
+          ADDRESSES[Network.FUSE].bbausdc.address,
           '0x7b50775383d3d6f0215a8f290f2c9e2eebbeceb20000000000000000000000fe'
         );
         expect(sp).to.deep.eq('0.997873677414938406552928560423740375');
@@ -233,8 +233,8 @@ describe('pricing module', () => {
       it('should fetch correct sp', async () => {
         const balancer = new BalancerSDK(sdkConfig);
         const sp = await balancer.pricing.getSpotPrice(
-          ADDRESSES[Network.MAINNET].USDC.address,
-          ADDRESSES[Network.MAINNET].bbausdc.address,
+          ADDRESSES[Network.FUSE].USDC.address,
+          ADDRESSES[Network.FUSE].bbausdc.address,
           '0x9210f1204b5a24742eba12f710636d76240df3d00000000000000000000000fc'
         );
         expect(sp).to.deep.eq('1.008078200925769181');

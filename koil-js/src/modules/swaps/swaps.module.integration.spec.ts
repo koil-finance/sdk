@@ -30,7 +30,7 @@ const setupSwaps = async (provider: JsonRpcProvider) => {
   const pools = await getForkedPools(provider);
 
   const swaps = new Swaps({
-    network: Network.MAINNET,
+    network: Network.FUSE,
     rpcUrl,
     sor: {
       tokenPriceService: 'coingecko',

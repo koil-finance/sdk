@@ -1,23 +1,12 @@
-import { PoolDataService, SubgraphPoolBase } from '@balancer-labs/sor';
-import {
-  OrderDirection,
-  Pool_OrderBy,
-  SubgraphClient,
-} from '@/modules/subgraph/subgraph';
-import { parseInt } from 'lodash';
-import { getOnChainBalances } from './onChainData';
-import { Provider } from '@ethersproject/providers';
-import { Network } from '@/lib/constants/network';
-import { BalancerNetworkConfig, BalancerSdkSorConfig } from '@/types';
+import {PoolDataService, SubgraphPoolBase} from '@balancer-labs/sor';
+import {OrderDirection, Pool_OrderBy, SubgraphClient,} from '@/modules/subgraph/subgraph';
+import {parseInt} from 'lodash';
+import {getOnChainBalances} from './onChainData';
+import {Provider} from '@ethersproject/providers';
+import {Network} from '@/lib/constants/network';
+import {BalancerNetworkConfig, BalancerSdkSorConfig} from '@/types';
 
-const NETWORKS_WITH_LINEAR_POOLS = [
-  Network.MAINNET,
-  Network.POLYGON,
-  Network.ROPSTEN,
-  Network.RINKEBY,
-  Network.GOERLI,
-  Network.KOVAN,
-];
+const NETWORKS_WITH_LINEAR_POOLS = [Network.FUSE, Network.FUSE_SPARK];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function mapPools(pools: any[]): SubgraphPoolBase[] {
@@ -53,7 +42,7 @@ export class SubgraphPoolDataService implements PoolDataService {
 
     const mapped = mapPools(pools);
 
-    if (this.sorConfig.fetchOnChainBalances === false) {
+    if (!this.sorConfig.fetchOnChainBalances) {
       return mapped;
     }
 
@@ -76,9 +65,7 @@ export class SubgraphPoolDataService implements PoolDataService {
       orderDirection: OrderDirection.Desc,
     });
 
-    const pools = [...pool0, ...pool1000];
-
-    return pools;
+    return [...pool0, ...pool1000];
   }
 
   private async getNonLinearPools() {

@@ -17,7 +17,7 @@ export const getForkedPools = async (
   provider: JsonRpcProvider,
   pools: SubgraphPoolBase[] = [B_50WBTC_50WETH]
 ): Promise<SubgraphPoolBase[]> => {
-  const network = getNetworkConfig({ network: Network.MAINNET, rpcUrl: '' });
+  const network = getNetworkConfig({ network: Network.FUSE, rpcUrl: '' });
 
   // btcEthPool from mainnet, balances and total shares are fetched from on chain data
   const onChainPools = await getOnChainBalances(
