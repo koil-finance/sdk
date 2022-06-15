@@ -1,16 +1,16 @@
 {
-    "name": "@balancer-labs/sdk",
-    "version": "0.1.12",
-    "description": "JavaScript SDK for interacting with the Balancer Protocol V2",
+    "name": "@koil-finance/sdk",
+    "version": "0.1.0",
+    "description": "JavaScript SDK for interacting with the Koil Protocol V2",
     "license": "GPL-3.0-only",
-    "homepage": "https://github.com/balancer-labs/balancer-sdk/balancer-js#readme",
+    "homepage": "https://github.com/koil-finance/sdk/blob/develop/README.md",
     "repository": {
         "type": "git",
-        "url": "https://github.com/balancer-labs/balancer-sdk",
-        "directory": "balancer-js"
+        "url": "https://github.com/koil-finance/sdk",
+        "directory": "koil-js"
     },
     "bugs": {
-        "url": "https://github.com/balancer-labs/balancer-sdk/issues"
+        "url": "https://github.com/koil-finance/sdk/issues"
     },
     "main": "dist/index.js",
     "module": "dist/index.esm.js",
